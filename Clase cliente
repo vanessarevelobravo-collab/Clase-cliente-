@@ -1,0 +1,103 @@
+
+class Cliente:
+    '''
+    Crear clase cliente 
+    '''
+    def __init__(self,nombre:str, apellido:str, cedula:str,
+        email: str, vip:bool=False, direccion:str=None, telefono:str=None,
+        celular:str=None, edad:int=None):
+        self.nombre = nombre
+        self.apellido = apellido
+        self.cedula = cedula
+        self.email = email
+        self.vip = vip
+        self.direccion = direccion
+        self.telefono = telefono
+        self.celular = celular
+        self.edad = edad
+
+    @property
+    def nombre(self):
+        return self._nombre
+
+    @nombre.setter
+    def nombre(self, valor):
+        self._nombre = valor
+
+    @property
+    def apellido(self):
+        return self._apellido
+
+    @apellido.setter
+    def apellido(self, valor):
+        self._apellido = valor
+
+    
+    @property
+    def cedula(self):
+        return self._cedula
+
+    @cedula.setter
+    def cedula(self, valor):
+        if not valor.isdigit():
+            raise ValueError("La cédula debe contener solo dígitos")
+        if len(valor) != 10:
+            raise ValueError("La cédula debe tener exactamente 10 dígitos")
+        self._cedula = valor
+
+    @property
+    def email(self):
+        return self._email
+
+    @email.setter
+    def email(self, valor):
+        self._email = valor
+
+    @property
+    def vip(self):
+        return self._vip
+
+    @vip.setter
+    def vip(self, valor):
+        self._vip = valor
+
+    @property
+    def direccion(self):
+        return self._direccion
+
+    @direccion.setter
+    def direccion(self, valor):
+        self._direccion = valor
+
+    @property
+    def telefono(self):
+        return self._telefono
+
+    @telefono.setter
+    def telefono(self, valor):
+        self._telefono = valor
+
+    @property
+    def celular(self):
+        return self._celular
+
+    @celular.setter
+    def celular(self, valor):
+        self._celular = valor
+
+    @property
+    def edad(self):
+        return self._edad
+
+    @edad.setter
+    def edad(self, valor):
+        if valor is not None and valor < 18:
+            raise ValueError("El cliente debe ser mayor de 18 años")
+        self._edad = valor
+
+    def __str__(self):
+        return (
+            f"Cliente(nombre={self.nombre}, apellido={self.apellido}, "
+            f"cedula={self.cedula}, email={self.email}, vip={self.vip}, "
+            f"edad={self.edad})"
+        )
